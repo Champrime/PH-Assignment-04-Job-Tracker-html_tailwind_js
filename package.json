@@ -4,7 +4,7 @@
   "description": "Job Application Tracker project is based on a model page of Digital Employment Platforms. This web app is created on top of HTML, designed using Tailwind CSS through command line interface, and added with interactivity by the vanilla/plain JavaScript.",
   "main": "index.html",
   "scripts": {
-    "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch 2>&1 | while IFS= read -r line; do echo \"[$(date '+%I:%M:%S %p')] $line\"; done",
+    "dev": "tailwindcss -i ./src/twInput.css -o ./dist/twOutput(only_for_tailwind_autoupdate).css --watch 2>&1 | while IFS= read -r line; do echo \"[$(date '+%I:%M:%S %p')] $line\"; done",
     "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
