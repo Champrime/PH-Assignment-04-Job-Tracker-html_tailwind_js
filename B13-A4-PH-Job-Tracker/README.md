@@ -16,8 +16,8 @@
 - The section should be responsive for mobile devices. It is totally up to you. 
 
 ## Available Jobs Section
-- A title on the left side, jobs count on the right side 
-- 3 different tab  below the section title 
+- [x] A title on the left side, jobs count on the right side 
+- [x] 3 different tab  below the section title 
 - Minimum 8 cards with:
 	- companyName
 	- position

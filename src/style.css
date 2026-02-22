@@ -6,30 +6,8 @@
     --primary: #3b82f6;
     --green: #10b981;
     --red: #ef4444;
-    --white: #ffffff;
     --stroke: #f1f2f4;
-    --greyscalewhite: #ffffff;
     --area-bg: #EEF4FF;
-    --h1-font-family: "Geist", Helvetica;
-    --h2-font-family: "Geist", Helvetica;
-    --sub-title1-font-family: "Geist", Helvetica;
-    --sub-title1-font-weight: 600;
-    --sub-title1-font-size: 18px;
-    --sub-title1-letter-spacing: 0px;
-    --sub-title1-line-height: 26px;
-    --sub-title1-font-style: normal;
-    --body-1-font-family: "Geist", Helvetica;
-    --body-1-font-weight: 400;
-    --body-1-font-size: 16px;
-    --body-1-letter-spacing: 0px;
-    --body-1-line-height: 22px;
-    --body-1-font-style: normal;
-    --body-2-font-family: "Geist", Helvetica;
-    --body-2-font-weight: 400;
-    --body-2-font-size: 14px;
-    --body-2-letter-spacing: 0px;
-    --body-2-line-height: 20px;
-    --body-2-font-style: normal;
     --drop-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.08);
 }
 
@@ -37,41 +15,30 @@ html {
     font-size: clamp(8px, 0.89vw + 2.286px, 16px);
 }
 
-/* ========================================
-   📚 ANIMATION TUTORIAL — .desc expand card
-   ========================================
+button{
+    transition: all 300ms ease-in-out;
+}
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 0.5rem 0.25rem rgba(86, 212, 7, 0.5);
 
-   CONCEPT 1: transition
-   - Tells the browser: "When a property changes, animate it smoothly."
-   - Format: transition: <property> <duration> <timing-function> <delay>;
-   - You can list multiple properties, separated by commas.
+}
 
-   CONCEPT 2: timing functions
-   - ease        → starts slow, speeds up, then slows down (default)
-   - ease-in     → starts slow, ends fast
-   - ease-out    → starts fast, ends slow (feels natural for closing)
-   - ease-in-out → slow on both ends
-   - cubic-bezier(x1, y1, x2, y2) → custom curve (advanced)
-
-   CONCEPT 3: transform
-   - More performant than animating width/height.
-   - Uses the GPU → buttery smooth 60fps.
-   - Common: scale(), translateY(), rotate(), opacity.
-
-   CONCEPT 4: will-change
-   - Hints the browser: "Hey, this property will animate soon, prepare!"
-   - Use sparingly — only on elements that actually animate.
-   ======================================== */
+.menu-selector {
+    transition: all 300ms ease-in-out;
+}
+.menu-selector:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 0.5rem 0.25rem rgba(86, 212, 7, 0.5);
+}
 
 .desc {
-    max-height: 4.5rem;                          /* collapsed height */
+    max-height: 3rem;
     overflow: hidden;
     padding: 0.75rem 0;
-    border-radius: 0.5rem;
+    border-radius: calc(1rem/4);
     color: var(--dark-grey);
     background: transparent;
-
-    /* 🎬 The transition — each property gets its own timing: */
     transition:
         max-height    400ms ease-in-out,        /* expand/collapse */
         background    300ms ease-in-out 300ms,  /* fade in bg, 100ms DELAY (waits for height to start) */
@@ -79,7 +46,6 @@ html {
         box-shadow    300ms ease-in-out,        /* shadow fades in */
         transform     200ms ease-out;           /* subtle scale */
 
-    /* 🖥️ Performance hint: */
     will-change: max-height, transform;
 
     /* 💡 cursor tells user it's interactive */
@@ -88,22 +54,12 @@ html {
 
 .desc:hover {
     max-height: 25rem;
-    overflow: scroll;                          /* expanded — large enough for content */
+    overflow-y: auto;                              /* scrollbar only when needed */
     /* color: var(--black); */                        /* text gets darker for readability */
     background: var(--area-bg);                 /* clean solid background */
     box-shadow: 0 0 1rem 0rem rgba(0, 0, 0, 0.08); /* subtle depth */
-    transform: scale(1.01);                     /* tiny zoom — feels alive */
+    transform: translateY(0.5rem) translateX(0.5rem);                     /* tiny zoom — feels alive */
 }
-
-/* 🔁 BONUS: What happens on MOUSE LEAVE?
-   The same transitions play in REVERSE automatically!
-   But we can make closing feel different by overriding
-   on the base class (not :hover). That's why the timing
-   is on .desc, not .desc:hover.
-
-   Try changing ease-in-out to ease-in on .desc to see
-   how the closing animation feels different!
-*/
 
 
 .btl{

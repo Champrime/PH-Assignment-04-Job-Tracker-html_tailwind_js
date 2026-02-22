@@ -128,3 +128,99 @@ transition:
 | `scale(1.01)` → `scale(1.05)` | More dramatic zoom |
 | Delay `100ms` → `0ms` | Everything starts together |
 | Add `translateY(-4px)` | Card "lifts up" on hover |
+
+---
+
+## 6. `cubic-bezier` — Animation Speed Curve
+
+### Syntax
+```css
+cubic-bezier(x1, y1, x2, y2)
+```
+
+- **X-axis** = Time (0 = start, 1 = end)
+- **Y-axis** = Progress (0 = start position, 1 = end position)
+- Two control points act like **magnets** pulling the curve:
+  - `(x1, y1)` shapes the **start** of the animation
+  - `(x2, y2)` shapes the **end** of the animation
+
+### Rules
+- `x1` and `x2` must be **0–1** (time can't go backward)
+- `y1` and `y2` can be **any number** (values outside 0–1 create bounce/overshoot)
+
+### Built-in Presets Are Just cubic-beziers
+| Keyword | cubic-bezier | Feels like |
+|---|---|---|
+| `linear` | `(0, 0, 1, 1)` | Constant speed |
+| `ease` | `(0.25, 0.1, 0.25, 1)` | Gentle start & stop |
+| `ease-in` | `(0.42, 0, 1, 1)` | Slow start, fast finish |
+| `ease-out` | `(0, 0, 0.58, 1)` | Fast start, soft stop |
+| `ease-in-out` | `(0.42, 0, 0.58, 1)` | Slow, fast, slow |
+
+### Useful Custom Curves
+```css
+cubic-bezier(0.4, 0, 0.2, 1)        /* Material Design standard */
+cubic-bezier(0.68, -0.55, 0.27, 1.55) /* Bouncy / playful */
+cubic-bezier(0.16, 1, 0.3, 1)        /* Dramatic entrance */
+```
+
+**Tool:** Use [cubic-bezier.com](https://cubic-bezier.com) to visually create curves.
+
+---
+
+## 7. Non-Animatable Properties
+
+CSS can only transition properties with **intermediate values** (gradual steps between two states).
+
+| Property | Animatable? | Why |
+|---|---|---|
+| `opacity` | ✅ | 0 → 0.1 → 0.2 → ... → 1 |
+| `height` | ✅ | 0px → 1px → 2px → ... |
+| `color` | ✅ | RGB values shift gradually |
+| `overflow` | ❌ | `hidden` or `visible` — no in-between |
+| `display` | ❌ | `none` or `block` — on/off switch |
+| `position` | ❌ | No gradual steps |
+
+**Workaround:** Use `transition-delay` to time the switch after an animation finishes.
+
+---
+
+## 8. `transform: scale()` Causes Blur
+
+- `scale()` rasterizes the element (takes a bitmap), then stretches it
+- Non-integer scales like `scale(1.01)` → pixels land between screen pixels → **sub-pixel blur**
+
+### Fixes
+- ✅ Use `translateY(-2px)` instead — no blur, same "lift" feel
+- ✅ Add `backface-visibility: hidden` — forces cleaner render
+- ✅ Rely on `box-shadow` alone for hover depth
+
+---
+
+## 9. `will-change` — Browser Performance Hint
+
+```css
+will-change: transform, box-shadow;
+```
+
+- Tells the browser to **create a separate GPU layer** in advance
+- Allocates memory and skips recalculations → smoother 60fps
+- Like calling a restaurant ahead: "I'm coming, prep my food!"
+
+### Rules
+- ✅ Use only on elements that **actually animate**
+- ✅ List only the **specific properties** that change
+- ❌ Never apply to `*` (everything) — wastes memory
+- Each `will-change` = extra GPU layer = extra RAM usage
+
+---
+
+## 10. `overflow-y: scroll` vs `overflow-y: auto`
+
+| Value | Behavior |
+|---|---|
+| `scroll` | **Always** shows scrollbar, even when content fits |
+| `auto` | Shows scrollbar **only when content overflows** |
+| `hidden` | Hides overflow, no scrollbar ever |
+
+**Takeaway:** Use `auto` unless you specifically want the scrollbar always visible (e.g., to prevent layout shift).
