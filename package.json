@@ -1,0 +1,33 @@
+{
+  "name": "ph-assignment-04-job-tracker-html_tailwind_js",
+  "version": "1.0.0",
+  "description": "Job Application Tracker project is based on a model page of Digital Employment Platforms. This web app is created on top of HTML, designed using Tailwind CSS through command line interface, and added with interactivity by the vanilla/plain JavaScript.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch 2>&1 | while IFS= read -r line; do echo \"[$(date '+%I:%M:%S %p')] $line\"; done",
+    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Champrime/PH-Assignment-04-Job-Tracker-html_tailwind_js.git"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "tailwind",
+    "javascript",
+    "daisy_ui",
+    "job-tracker"
+  ],
+  "author": "Shakhawat Hossain Sadik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Champrime/PH-Assignment-04-Job-Tracker-html_tailwind_js/issues"
+  },
+  "homepage": "https://github.com/Champrime/PH-Assignment-04-Job-Tracker-html_tailwind_js#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.2.0",
+    "tailwindcss": "^4.2.0"
+  }
+}
