@@ -21,13 +21,13 @@
             <div class="flex-col bg-white border border-(--stroke) rounded-lg">
                 <div class="m-5 flex-y gap-2">
                     <p>Interviewed</p>
-                    <h2 class="text-(--green)">0</h2>
+                    <h2 id="interviewCount" class="text-(--green)">0</h2>
                 </div>
             </div>
             <div class="flex-col bg-white border border-(--stroke) rounded-lg">
                 <div class="m-5 flex-y gap-2">
                     <p>Rejected</p>
-                    <h2 class="text-(--red)">0</h2>
+                    <h2 id="rejectCount" class="text-(--red)">0</h2>
                 </div>
             </div>
         </div>
@@ -37,11 +37,11 @@
             <h3>Available Jobs</h3>
             <output>8 Jobs</output>
         </section>
-        <section class="flex-y gap-4">
+        <section id="all" class="flex-y gap-4">
             <div class="flex gap-2">
-                <button class=""><span class="menu-selector bg-transparent text-(--grey) text-[0.75rem] text-center leading-3 border border-(--stroke) rounded-sm p-2">All</span></button>
-                <button class=""><span class="menu-selector bg-transparent text-(--grey) text-[0.75rem] text-center leading-3 border border-(--stroke) rounded-sm p-2">Interviewed</span></button>
-                <button class=""><span class="menu-selector bg-transparent text-(--grey) text-[0.75rem] text-center leading-3 border border-(--stroke) rounded-sm p-2">Rejected</span></button>
+                <button onclick="" class="menu-selector border border-(--stroke) rounded-sm px-3 py-2"><span class="text-(--grey) text-[0.75rem] text-center leading-3">All</span></button>
+                <button onclick="" class="menu-selector border border-(--stroke) rounded-sm px-3 p-2"><span class="text-(--grey) text-[0.75rem] text-center leading-3">Interview</span></button>
+                <button onclick="" class="menu-selector border border-(--stroke) rounded-sm px-3 p-2"><span class="text-(--grey) text-[0.75rem] text-center leading-3">Rejected</span></button>
             </div>
             <div class="bg-white flex-col gap-4 border border-(--stroke) rounded-lg">
                 <div class="p-5 flex-y gap-5">
@@ -53,7 +53,7 @@
                         <span class="list-disc md:list-none"><li>Remote</li></span><span class="list-disc"><li>Full-time</li></span><span class="list-disc"><li>$130,000 - $175,000</li></span>
                     </div>
                     <div>
-                        <p class="not-applied bg-(--area-bg) text-(--black) font-medium p-3 rounded-sm w-fit cursor-not-allowed">Not Applied</p>
+                        <p class="not-applied bg-(--area-bg) text-(--black) font-medium m-3 p-3 rounded-sm w-fit cursor-not-allowed">Not Applied</p>
                         <div class="relative">
                             <div class="min-h-12 max-h-20">
                                 <p class="absolute desc">
@@ -63,12 +63,15 @@
                         </div>
                     </div>
                     <div class="flex gap-2">
-                        <button class="text-sm font-semibold p-3 leading-5 transform-gpu border border-(--green) rounded-sm"><span class="text-(--green)">Interview</span></button>
-                        <button class="text-sm font-semibold p-3 leading-5 transform-gpu border border-(--red) rounded-sm"><span class="text-(--red)">Reject</span></button>
+                        <button onclick="interviewClick()" id="" class="interviewClick text-sm font-semibold p-3 leading-5 transform-gpu border border-(--green) rounded-sm"><span class="text-(--green)">Interview</span></button>
+                        <button onclick="rejectClick()" id="" class="rejectClick text-sm font-semibold p-3 leading-5 transform-gpu border border-(--red) rounded-sm"><span class="text-(--red)">Reject</span></button>
                     </div>
                 </div>
             </div>
         </section>
+        <section id="interviewed" class="hidden flex-y gap-4"></section>
+        <section id="rejected" class="hidden flex-y gap-4"></section>
     </main>
 </body>
+<script src="./src/script.js"></script>
 </html>
