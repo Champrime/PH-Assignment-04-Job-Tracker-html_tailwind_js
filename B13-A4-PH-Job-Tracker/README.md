@@ -1,59 +1,4 @@
-## Welcome To ( সহজ সরল সিম্পল ) Assignment - 4 
-
-
----
-# 📅 Deadline For 60 marks: 23th February, 2026 (11:59 pm ⏱️)
-# 📅 Additional Deadline For 60 marks: 24th February, 2026 (11:59 pm ⏱️)
-# 📅 Deadline For 30 marks: Any time after 24th February.
-
-
-# Main Requirements
-
-## Design Part
-
-## Dashboard
-- Website name and Create a dashboard like figma 
-- The section should be responsive for mobile devices. It is totally up to you. 
-
-## Available Jobs Section
-- [x] A title on the left side, jobs count on the right side 
-- [x] 3 different tab  below the section title 
-- Minimum 8 cards with:
-	- companyName
-	- position
-	- location
-	- type
-	- salary
-	- description
-	- 2 buttons: Interview, Rejected
-- By default all the jobs data will show on All tab, and the Interview, Rejected tab will show “No jobs Available” message with a subtitle below and an icon/image on the above
-
-- The section should be responsive for mobile devices. It is totally up to you.
-
---- 
-
-## Functionalities Part
-- Clicking on Interview button on the card 
-    - will add the data on Interview tab 
-    - add the status as Interview.
-    - Will increase the the count of interview in Dashboard 
-
-- Clicking on Rejected button on the card 
-    - will add the data on Rejected tab 
-    - add the status as Rejected.
-    - Will increase the the count of Rejected in Dashboard
-
-- Enable toggle between Interview and rejected button(you can select Rejected button after clicking on Interview, and Interview button after clicking on Rejected button). It will change the tab and dashboard count also. It will show tab wise jobs count on the right.
-
----
-
-# Challenges Requirements
-
-- Clicking on the delete button will remove that card from the UI, and the count will be deducted from the dashboard card and the main section.
-- No lorem ipsum text on your website. At least 8 meaningful commits in your project.  
-
-- Create a readme file and answer this question on your own. Don’t copy-paste from Google or any AI chatbot. 
-
+#Assignment #4 - Job Tracker
 
 ## Answers to Questions
 
@@ -65,13 +10,13 @@
    - If no element is found, it returns null.
 
 2. getElementsByClassName:
-   - Returns collection of elements named under this specific class name.
+   - Returns collection of HTML elements named under this specific class name.
    - It returns multiple elements as the name "getElements" suggest.
 
 3. querySelector / querySelectorAll:
    - querySelector returns single element like getElementByID the first element that matches a CSS selector.
-   - querySelectorAll returns all elements that match a CSS selector.
-   - Unlike getElementById and getElementsByClassName, querySelector and querySelectorAll can use any CSS selector, which makes them versatile.
+   - querySelectorAll returns Nodelist. Everything in HTML represents a node, not even a whitespace excluded.
+   - Unlike getElementById and getElementsByClassName, querySelector and querySelectorAll can use any CSS selector, which makes them versatile at times.
    - Have to use `#`, `.` in front of elmenets to adress the elements of id and class respectively. For tag name though, keep it as is.
 
 ### 2. How do you create and insert a new element into the DOM?
@@ -81,55 +26,53 @@ To create and insert a new element into the DOM, I follow the following steps:
 1. Create a new element using `document.createElement()`.
 
 	```js
-	const newElement = document.createElement('div');
+	const newComment = document.createElement('div');
 	```
 
 2. Set any attributes, classes, or content for the new element as needed.
 
 	```js
-	newElement.classList.add('my-class');
-	newElement.textContent = 'This is a new element';
+	newComment.classList.add('my-class');
+	newComment.innerText = 'This is a new element';
 	```
 
 3. Select the parent element where you want to insert the new element.
 
 ```js
-const parentElement = document.getElementById('parent');
+const comments = document.getElementById('parent');
 ```
 
 4. Append the new element to the parent element using `appendChild()` or `insertBefore()`.
 	
 	```js
-	parentElement.appendChild(newElement);
-	```
-
-This will add the new element as the last child of the parent element. If you want to insert it at a specific position, you can use `insertBefore()` instead:
-
-	```js
-	const referenceElement = document.getElementById('reference');
-	parentElement.insertBefore(newElement, referenceElement);
+	comments.appendChild(newComment);
 	```
 
 This will insert the new element before the reference element within the parent element.
 
 ### 3. What is Event Bubbling? And how does it work?
 
+Event bubbling is a JS Concept where an event starts from the deepest target element and then propagates up through its parents and ancestor elements in the DOM tree. When an event occurs on an element, it first triggers any event handlers on that element, and then it "bubbles up" to its parent elements, triggering any event handlers on those parents as well, until it reaches the root of the document.
+
 ### 4. What is Event Delegation in JavaScript? Why is it useful?
 
+Event delegation is a technic where an event listener is attached to a parent element instead of individual child elements. When an event occurs on a child element, it bubbles up to the parent, and the event handler on the parent executes.
+
 ### 5. What is the difference between preventDefault() and stopPropagation() methods?
+
+- `preventDefault()`: This method prevents the default action associated with an event from occurring. For example, if you have a link (`<a>`) and you call `preventDefault()` in its click event handler, it will prevent the browser from navigating to the link's URL.
+- `stopPropagation()`: This method stops the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.
 
 ---
 
 
 **Technology Stack:**
 - HTML
-- CSS (Vanilla/Tailwind/DaisyUI)
+- CSS (Vanilla/Tailwind)
 - JavaScript (Vanilla)
 
 
 --- 
 
-## What to submit: 
-
-1. GitHub Repository Link: 
-2. Live Site Link: 
+1. GitHub Repository Link: [PH-Assignment-04-Job-Tracker-html_tailwind_js](https://github.com/Champrime/PH-Assignment-04-Job-Tracker-html_tailwind_js.git)
+2. Live Site Link: [Live site](https://champrime.github.io/PH-Assignment-04-Job-Tracker-html_tailwind_js/)
