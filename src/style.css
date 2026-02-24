@@ -35,7 +35,6 @@ button:hover {
     box-shadow: 0 0 0.5rem 0.25rem rgba(7, 212, 154, 0.425);
 }
 
-
 .desc {
     max-height: 3rem;
     overflow: hidden;
@@ -44,29 +43,38 @@ button:hover {
     color: var(--dark-grey);
     background: transparent;
     transition:
-        max-height    200ms ease-in-out,        /* expand/collapse */
-        padding       200ms ease-in-out,        /* padding grows with height */
-        background    300ms ease-in-out 100ms,  /* fade in bg, 100ms DELAY (waits for height to start) */
-        color         300ms ease-in-out,        /* smooth color shift */
-        box-shadow    300ms ease-out 100ms ,        /* shadow fades in */
-        transform     200ms ease-out;           /* subtle scale */
+        max-height    200ms ease-in-out,
+        padding       200ms ease-in-out,
+        background    300ms ease-in-out 100ms,
+        color         300ms ease-in-out,
+        box-shadow    300ms ease-out 100ms,
+        transform     200ms ease-out;
 
     will-change: max-height, transform;
 
-    /* 💡 cursor tells user it's interactive */
     cursor: pointer;
 }
 
 .desc:hover {
     max-height: 25rem;
     padding: 0.75rem;
-    overflow-y: auto;                              /* scrollbar only when needed */
-    /* color: var(--black); */                        /* text gets darker for readability */
-    background: var(--area-bg);                 /* clean solid background */
-    box-shadow: 0 0 1rem 0rem rgba(0, 0, 0, 0.08); /* subtle depth */
-    transform: translateY(0.5rem) translateX(0.5rem);                     /* tiny zoom — feels alive */
+    overflow-y: auto;
+    background: var(--area-bg);
+    box-shadow: 0 0 1rem 0rem rgba(0, 0, 0, 0.08);
+    transform: translateY(0.5rem) translateX(0.5rem);
 }
 
+.active-tab {
+    background-color: var(--black, #111827);
+}
+.active-tab span {
+    color: #ffffff !important;
+}
+
+.recycle-btn {
+    display: block;
+    margin-top: auto;
+}
 
 .btl{
     border: 3px solid #4bf63b;
