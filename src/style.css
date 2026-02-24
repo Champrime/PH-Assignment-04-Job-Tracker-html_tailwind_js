@@ -17,10 +17,12 @@ html {
 
 button{
     cursor: pointer;
-    transition: all 300ms ease-in-out;
+    transition: transform 300ms ease-in-out, background 800ms ease-in-out, box-shadow 600ms ease-in-out;
 }
 button:hover {
     transform: scale(1.05);
+    background-clip: ;
+    background: linear-gradient(0deg, rgba(86, 212, 7, 0.5), rgba(0, 0, 0, 0));
     box-shadow: 0 0 0.5rem 0.25rem rgba(86, 212, 7, 0.5);
 
 }

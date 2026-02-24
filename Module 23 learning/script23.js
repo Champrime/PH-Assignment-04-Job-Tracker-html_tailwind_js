@@ -3,6 +3,7 @@ console.log(makeYellowV);
 
 let makeYellow = () => {
   makeYellowV.style.backgroundColor = "#FFFF00";
+  makeYellowV.style.color = "#000";
 };
 
 //-----------------------------------------------
@@ -19,4 +20,4 @@ makeOrange.onclick = () => {
 
 const makePurple = document.querySelector(".make-purple")
 
-makePurple.addEventListener() = () => {}
+makePurple.addEventListener("click", () => {makePurple.style.backgroundColor = "Purple";})
