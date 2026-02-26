@@ -69,13 +69,33 @@
 </body>
 <script>
     // List item 5 click handler
+    setTimeout(() => {document.getElementById("item-5").addEventListener("click", () => {
+        console.log(`clicked on item-5`);
+        // event.stopImmediatePropagation();
+    })}, 2000);
+
     document.getElementById("item-5").addEventListener("click", () => {
+        console.log(`clicked on item-5`);
+        // event.stopPropagation();
+    })
+
+    document.getElementById("item-5").addEventListener("click", (Bubble) => {
         console.log(`clicked on ${document.getElementById("item-5").innerText}`);
+        // Bubble.stopImmediatePropagation(); //won't bubble event beyond this function.
+        
+    })
+
+    document.getElementById("item-5").addEventListener("click", () => {
+        console.log(`item 5/6`);
+        // event.stopPropagation();
     })
 
     //ul click handler
     document.getElementById("items-list").addEventListener("click", () => {
-        console.log(`clicked on ${document.getElementById("items-list")}`);
+        console.log(`clicked on ul`);
     })
+
+    //body click handler
+    document.querySelector("body").addEventListener("click", ()=>{console.log(`clicked over the body`)})
 </script>
 </html>
