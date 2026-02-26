@@ -102,9 +102,10 @@
         // step--3: get the parent node where the comment will be appended as a child element
         const comments = document.getElementById("comment-group");
         // step--4: create a commment paragraph and set the innerText
-        const newComment = document.createElement('p');
-        newComment.classList.add("comment");
-        newComment.innerText = writeComment;
+        const newComment = document.createElement('p'); //p
+        newComment.classList.add("comment"); //.comment
+        newComment.innerText = writeComment; //{whatever written in the comment box}
+            // p.comment{whatever written in the comment box}
         // step--5: append the comment as a child element to the parent node
         // newComment.appendChild(writeComment);
         comments.appendChild(newComment);
