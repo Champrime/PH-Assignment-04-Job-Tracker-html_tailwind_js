@@ -39,7 +39,7 @@
                 <h3>Available Jobs</h3>
                 <output>8 Jobs</output>
             </div>
-            <div class="flex gap-2">
+            <div id="tab-section" class="flex gap-2">
                 <button id="all-tab" class="menu-selector border border-(--stroke) rounded-sm px-3 py-2"><span class="text-(--grey) text-[0.75rem] text-center leading-3">All</span></button>
                 <button id="interview-tab" class="menu-selector border border-(--stroke) rounded-sm px-3 p-2"><span class="text-(--grey) text-[0.75rem] text-center leading-3">Interview</span></button>
                 <button id="reject-tab" class="menu-selector border border-(--stroke) rounded-sm px-3 p-2"><span class="text-(--grey) text-[0.75rem] text-center leading-3">Rejected</span></button>
@@ -67,7 +67,7 @@
                     </div>
                     <div class="flex gap-2">
                         <button id="interview-click-1" class="interview-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--green) rounded-sm"><span class="text-(--green)">Interview</span></button>
-                        <button onclick="rejectClick()" id="reject-click-1" class="reject-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--red) rounded-sm"><span class="text-(--red)">Reject</span></button>
+                        <button id="reject-click-1" class="reject-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--red) rounded-sm"><span class="text-(--red)">Reject</span></button>
                     </div>
                 </div>
             </div>
