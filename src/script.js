@@ -38,15 +38,17 @@ interview.addEventListener("click", (event) => {
     if (event.target.classList.contains("del-btn")) {
         event.target.closest(".job-card").remove();  //will start removing from the feet of event.currentTarget.parentNode.parentNode.parentNode
         interviewCount.innerText = Number(interviewCount.innerText) - 1;
+        document.querySelector(".not-applied").innerText = "Not Applied";
     }
 });
 
-//Initializing Interview and Reject button
+//Initializing Interview button
 all.addEventListener("click", (event) => {
     if(event.target.classList.contains("interview-click") || event.target.parentNode.classList.contains("interview-click")){
         let x = event.target.closest(".job-card").cloneNode(true);
         interview.appendChild(x);
         interviewCount.innerText = Number(interviewCount.innerText) + 1;
+        document.querySelector(".not-applied").innerText = "Applied";
     }
 })
     
@@ -61,6 +63,9 @@ section_Tab.addEventListener("click", (event) => {
         }
     }
 });
+
+//Initializing Reject button
+
 
 // Tab Selector primarily hard coded
 /*
