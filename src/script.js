@@ -34,10 +34,19 @@ all.addEventListener("click", (event) => {
     }
 });
 
+interview.addEventListener("click", (event) => {
+    if (event.target.classList.contains("del-btn")) {
+        event.target.closest(".job-card").remove();  //will start removing from the feet of event.currentTarget.parentNode.parentNode.parentNode
+        interviewCount.innerText = Number(interviewCount.innerText) - 1;
+    }
+});
+
 //Initializing Interview and Reject button
 all.addEventListener("click", (event) => {
-    if (event.target.classList.contain("interview-click")){
-
+    if(event.target.classList.contains("interview-click") || event.target.parentNode.classList.contains("interview-click")){
+        let x = event.target.closest(".job-card").cloneNode(true);
+        interview.appendChild(x);
+        interviewCount.innerText = Number(interviewCount.innerText) + 1;
     }
 })
     
