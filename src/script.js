@@ -45,10 +45,10 @@ interview.addEventListener("click", (event) => {
 //Initializing Interview button
 all.addEventListener("click", (event) => {
     if(event.target.classList.contains("interview-click") || event.target.parentNode.classList.contains("interview-click")){
+        event.target.parentNode.closest(".not-applied").innerText = "Applied";
         let x = event.target.closest(".job-card").cloneNode(true);
         interview.appendChild(x);
         interviewCount.innerText = Number(interviewCount.innerText) + 1;
-        document.querySelector(".not-applied").innerText = "Applied";
     }
 })
     
