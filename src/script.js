@@ -1,6 +1,6 @@
 // const menuSelectors = document.getElementsByClassName("menu-selector");
-const jobCards = document.querySelectorAll('job-card');
 const totalCount = document.getElementById("total-count");
+const searchOutput = document.getElementById("search-output");
 const interviewCount = document.getElementById("interview-count");
 const rejectCount = document.getElementById("reject-count");
 
@@ -13,17 +13,34 @@ const event_InterviewClick1 = document.getElementById("interview-click-1");
 const reject = document.getElementById("rejected");
 const position_RejectTab = document.getElementById("reject-tab");
 const event_RejectClick1 = document.getElementById("reject-click-1");
-const event_Delete_Card = document.getElementsByClassName("del-btn");
-
 
 const tabArray = [position_AllTab, position_InterviewTab, position_RejectTab];
 const sectionArray = [all, interview, reject];
 // const rejectClick1 = document.getElementById("reject-click-1");
 
+
+// Total Job Count
 for(let x of document.getElementsByClassName("job-card")){
     totalCount.innerText = Number(totalCount.innerText) + 1;
+    searchOutput.innerText = totalCount.innerText;
 }
 
+//Initializing Delete - Recycle bin button
+all.addEventListener("click", (event) => {
+    if (event.target.classList.contains("del-btn")) {
+        event.target.closest(".job-card").remove();  //will start removing from the feet of event.currentTarget.parentNode.parentNode.parentNode
+        totalCount.innerText = Number(totalCount.innerText) - 1;
+        searchOutput.innerText = totalCount.innerText;
+    }
+});
+
+//Initializing Interview and Reject button
+all.addEventListener("click", (event) => {
+    if (event.target.classList.contain("interview-click")){
+
+    }
+})
+    
 section_Tab.addEventListener("click", (event) => {
     for (let i = 0; i < tabArray.length; i++){ 
         if(event.target.parentNode.id ===  tabArray[i].id || event.target.id === tabArray[i].id && sectionArray[i].classList.contains("hidden")){
@@ -66,23 +83,18 @@ position_RejectTab.addEventListener("click" , () => {
 })
 */
 
-event_InterviewClick1.addEventListener ("click", (event) => {
-    let card = ((event.currentTarget.parentNode).parentNode).parentNode;
-    let copyCard = card.cloneNode(true);
-    interview.appendChild(copyCard);
-    console.log(document.getElementsByTagName("button").nodeList);
-})
 
-
-//     if (interviewCount.innerText < 1){
-//         interviewCount.innerText = Number(interviewCount.innerText) + 1;
-//         // if (rejectCLick()){document.getElementById("interviewCount").innerHTML = Number(document.getElementById("interviewCount").innerText) - 1}
-//         event_InterviewClick1.style.opacity = "50%";
-//         rejectClick1.style.opacity = "100%";
-//         document.getElementById("not-applied-1").innerText = "Applied";
-//         document.createElement()
-//     }
-// }, {once: true})
+    
+    
+/*    if (interviewCount.innerText < 1){
+        interviewCount.innerText = Number(interviewCount.innerText) + 1;
+        // if (rejectCLick()){document.getElementById("interviewCount").innerHTML = Number(document.getElementById("interviewCount").innerText) - 1}
+        event_InterviewClick1.style.opacity = "50%";
+        rejectClick1.style.opacity = "100%";
+        document.getElementById("not-applied-1").innerText = "Applied";
+        document.createElement()
+    }
+}, {once: true})*/
 
 // rejectClick1.addEventListener ("click", () => {
 //     if (rejectCount.innerText < 1){

@@ -37,7 +37,7 @@
         <section class="flex-y gap-4 pb-6">
             <div class="flex-between items-center">
                 <h3>Available Jobs</h3>
-                <output>8 Jobs</output>
+                <output><span id="search-output">0</span> Jobs</output>
             </div>
             <div id="tab-section" class="flex gap-2">
                 <button id="all-tab" class="menu-selector border border-(--stroke) rounded-sm px-3 py-2"><span class="text-(--grey) text-[0.75rem] text-center leading-3">All</span></button>
@@ -67,217 +67,48 @@
                             </div>
                         </div>
                         <div class="flex gap-2">
-                            <button id="interview-click-1" class="interview-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--green) rounded-sm"><span class="text-(--green)">Interview</span></button>
-                            <button id="reject-click-1" class="reject-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--red) rounded-sm"><span class="text-(--red)">Reject</span></button>
+                            <button id="interview-click-1" class="interview-click green-btn text-sm font-semibold p-3 leading-5 transform-gpu border border-(--green) rounded-sm"><span class="text-(--green)">Interview</span></button>
+                            <button id="reject-click-1" class="reject-click reject-btn text-sm font-semibold p-3 leading-5 transform-gpu border border-(--red) rounded-sm"><span class="text-(--red)">Reject</span></button>
                         </div>
                     </div>
 
                     <div class="absolute top-6 right-6">
-                        <button class="del-btn text-(--grey) text-xl"><i class="fa-solid fa-trash-can"></i></button>
+                        <button class="del-btn red-btn text-xl fa-solid fa-trash-can"></button>
                     </div>
                 </div>
             </div>
             <div id="job-card-2" class="job-card bg-white flex-col gap-4 border border-(--stroke) rounded-lg">
-                <div class="p-5 flex-y gap-5">
-                    <div>
-                        <h4>Mobile First Corp</h4>
-                        <h5>React Native Developer</h5>
-                    </div>
-                    <div class="summary flex flex-col md:flex-row gap-8 m-3 md:m-0">
-                        <span class="list-disc md:list-none"><li>Remote</li></span><span class="list-disc"><li>Full-time</li></span><span class="list-disc"><li>$130,000 - $175,000</li></span>
-                    </div>
-                    <div>
-                        <p id="not-applied-2" class="not-applied bg-(--area-bg) text-(--black) font-medium m-3 p-3 rounded-sm w-fit cursor-not-allowed">Not Applied</p>
-                        <div class="relative">
-                            <div class="min-h-12 max-h-20">
-                                <p class="absolute desc">
-                                    Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.
-                                </p>
+                <div class="relative flex-x">
+                    <div class="p-5 flex-y gap-5 w-full">
+                        <div>
+                            <h4>Mobile First Corp</h4>
+                            <h5>React Native Developer</h5>
+                        </div>
+                        <div class="summary flex flex-col md:flex-row gap-8 m-3 md:m-0">
+                            <span class="list-disc md:list-none"><li>Remote</li></span><span class="list-disc"><li>Full-time</li></span><span class="list-disc"><li>$130,000 - $175,000</li></span>
+                        </div>
+                        <div>
+                            <p id="not-applied-2" class="not-applied bg-(--area-bg) text-(--black) font-medium m-3 p-3 rounded-sm w-fit cursor-not-allowed">Not Applied</p>
+                            <div class="relative">
+                                <div class="min-h-12 max-h-20">
+                                    <p class="absolute desc">
+                                        Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.
+                                    </p>
+                                </div>
                             </div>
                         </div>
+                        <div class="flex gap-2">
+                            <button id="interview-click-2" class="interview-click green-btn text-sm font-semibold p-3 leading-5 transform-gpu border border-(--green) rounded-sm"><span class="text-(--green)">Interview</span></button>
+                            <button id="reject-click-2" class="reject-click reject-btn text-sm font-semibold p-3 leading-5 transform-gpu border border-(--red) rounded-sm"><span class="text-(--red)">Reject</span></button>
+                        </div>
                     </div>
-                    <div class="flex gap-2">
-                        <button id="interview-click-2" class="interview-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--green) rounded-sm"><span class="text-(--green)">Interview</span></button>
-                        <button onclick="rejectClick()" id="reject-click-2" class="reject-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--red) rounded-sm"><span class="text-(--red)">Reject</span></button>
+
+                    <div class="absolute top-6 right-6">
+                        <button class="del-btn red-btn text-xl fa-solid fa-trash-can"></button>
                     </div>
                 </div>
             </div>
-            <div id="job-card-3" class="job-card bg-white flex-col gap-4 border border-(--stroke) rounded-lg">
-                <div class="p-5 flex-y gap-5">
-                    <div>
-                        <h4>Mobile First Corp</h4>
-                        <h5>React Native Developer</h5>
-                    </div>
-                    <div class="summary flex flex-col md:flex-row gap-8 m-3 md:m-0">
-                        <span class="list-disc md:list-none"><li>Remote</li></span><span class="list-disc"><li>Full-time</li></span><span class="list-disc"><li>$130,000 - $175,000</li></span>
-                    </div>
-                    <div>
-                        <p id="not-applied-3" class="not-applied bg-(--area-bg) text-(--black) font-medium m-3 p-3 rounded-sm w-fit cursor-not-allowed">Not Applied</p>
-                        <div class="relative">
-                            <div class="min-h-12 max-h-20">
-                                <p class="absolute desc">
-                                    Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex gap-2">
-                        <button id="interview-click-3" class="interview-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--green) rounded-sm"><span class="text-(--green)">Interview</span></button>
-                        <button onclick="rejectClick()" id="reject-click-3" class="reject-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--red) rounded-sm"><span class="text-(--red)">Reject</span></button>
-                    </div>
-                </div>
-            </div>
-            <div id="job-card-4" class="job-card bg-white flex-col gap-4 border border-(--stroke) rounded-lg">
-                <div class="p-5 flex-y gap-5">
-                    <div>
-                        <h4>Mobile First Corp</h4>
-                        <h5>React Native Developer</h5>
-                    </div>
-                    <div class="summary flex flex-col md:flex-row gap-8 m-3 md:m-0">
-                        <span class="list-disc md:list-none"><li>Remote</li></span><span class="list-disc"><li>Full-time</li></span><span class="list-disc"><li>$130,000 - $175,000</li></span>
-                    </div>
-                    <div>
-                        <p id="not-applied-4" class="not-applied bg-(--area-bg) text-(--black) font-medium m-3 p-3 rounded-sm w-fit cursor-not-allowed">Not Applied</p>
-                        <div class="relative">
-                            <div class="min-h-12 max-h-20">
-                                <p class="absolute desc">
-                                    Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex gap-2">
-                        <button id="interview-click-4" class="interview-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--green) rounded-sm"><span class="text-(--green)">Interview</span></button>
-                        <button onclick="rejectClick()" id="reject-click-4" class="reject-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--red) rounded-sm"><span class="text-(--red)">Reject</span></button>
-                    </div>
-                </div>
-            </div>
-            <div id="job-card-5" class="job-card bg-white flex-col gap-4 border border-(--stroke) rounded-lg">
-                <div class="p-5 flex-y gap-5">
-                    <div>
-                        <h4>Mobile First Corp</h4>
-                        <h5>React Native Developer</h5>
-                    </div>
-                    <div class="summary flex flex-col md:flex-row gap-8 m-3 md:m-0">
-                        <span class="list-disc md:list-none"><li>Remote</li></span><span class="list-disc"><li>Full-time</li></span><span class="list-disc"><li>$130,000 - $175,000</li></span>
-                    </div>
-                    <div>
-                        <p id="not-applied-5" class="not-applied bg-(--area-bg) text-(--black) font-medium m-3 p-3 rounded-sm w-fit cursor-not-allowed">Not Applied</p>
-                        <div class="relative">
-                            <div class="min-h-12 max-h-20">
-                                <p class="absolute desc">
-                                    Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex gap-2">
-                        <button id="interview-click-5" class="interview-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--green) rounded-sm"><span class="text-(--green)">Interview</span></button>
-                        <button onclick="rejectClick()" id="reject-click-5" class="reject-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--red) rounded-sm"><span class="text-(--red)">Reject</span></button>
-                    </div>
-                </div>
-            </div>
-            <div id="job-card-6" class="job-card bg-white flex-col gap-4 border border-(--stroke) rounded-lg">
-                <div class="p-5 flex-y gap-5">
-                    <div>
-                        <h4>Mobile First Corp</h4>
-                        <h5>React Native Developer</h5>
-                    </div>
-                    <div class="summary flex flex-col md:flex-row gap-8 m-3 md:m-0">
-                        <span class="list-disc md:list-none"><li>Remote</li></span><span class="list-disc"><li>Full-time</li></span><span class="list-disc"><li>$130,000 - $175,000</li></span>
-                    </div>
-                    <div>
-                        <p id="not-applied-6" class="not-applied bg-(--area-bg) text-(--black) font-medium m-3 p-3 rounded-sm w-fit cursor-not-allowed">Not Applied</p>
-                        <div class="relative">
-                            <div class="min-h-12 max-h-20">
-                                <p class="absolute desc">
-                                    Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex gap-2">
-                        <button id="interview-click-6" class="interview-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--green) rounded-sm"><span class="text-(--green)">Interview</span></button>
-                        <button onclick="rejectClick()" id="reject-click-6" class="reject-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--red) rounded-sm"><span class="text-(--red)">Reject</span></button>
-                    </div>
-                </div>
-            </div>
-            <div id="job-card-7" class="job-card bg-white flex-col gap-4 border border-(--stroke) rounded-lg">
-                <div class="p-5 flex-y gap-5">
-                    <div>
-                        <h4>Mobile First Corp</h4>
-                        <h5>React Native Developer</h5>
-                    </div>
-                    <div class="summary flex flex-col md:flex-row gap-8 m-3 md:m-0">
-                        <span class="list-disc md:list-none"><li>Remote</li></span><span class="list-disc"><li>Full-time</li></span><span class="list-disc"><li>$130,000 - $175,000</li></span>
-                    </div>
-                    <div>
-                        <p id="not-applied-7" class="not-applied bg-(--area-bg) text-(--black) font-medium m-3 p-3 rounded-sm w-fit cursor-not-allowed">Not Applied</p>
-                        <div class="relative">
-                            <div class="min-h-12 max-h-20">
-                                <p class="absolute desc">
-                                    Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex gap-2">
-                        <button id="interview-click-7" class="interview-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--green) rounded-sm"><span class="text-(--green)">Interview</span></button>
-                        <button onclick="rejectClick()" id="reject-click-7" class="reject-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--red) rounded-sm"><span class="text-(--red)">Reject</span></button>
-                    </div>
-                </div>
-            </div>
-            <div id="job-card-8" class="job-card bg-white flex-col gap-4 border border-(--stroke) rounded-lg">
-                <div class="p-5 flex-y gap-5">
-                    <div>
-                        <h4>Mobile First Corp</h4>
-                        <h5>React Native Developer</h5>
-                    </div>
-                    <div class="summary flex flex-col md:flex-row gap-8 m-3 md:m-0">
-                        <span class="list-disc md:list-none"><li>Remote</li></span><span class="list-disc"><li>Full-time</li></span><span class="list-disc"><li>$130,000 - $175,000</li></span>
-                    </div>
-                    <div>
-                        <p id="not-applied-8" class="not-applied bg-(--area-bg) text-(--black) font-medium m-3 p-3 rounded-sm w-fit cursor-not-allowed">Not Applied</p>
-                        <div class="relative">
-                            <div class="min-h-12 max-h-20">
-                                <p class="absolute desc">
-                                    Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex gap-2">
-                        <button id="interview-click-8" class="interview-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--green) rounded-sm"><span class="text-(--green)">Interview</span></button>
-                        <button onclick="rejectClick()" id="reject-click-8" class="reject-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--red) rounded-sm"><span class="text-(--red)">Reject</span></button>
-                    </div>
-                </div>
-            </div>
-            <div id="job-card-9" class="job-card bg-white flex-col gap-4 border border-(--stroke) rounded-lg">
-                <div class="p-5 flex-y gap-5">
-                    <div>
-                        <h4>Mobile First Corp</h4>
-                        <h5>React Native Developer</h5>
-                    </div>
-                    <div class="summary flex flex-col md:flex-row gap-8 m-3 md:m-0">
-                        <span class="list-disc md:list-none"><li>Remote</li></span><span class="list-disc"><li>Full-time</li></span><span class="list-disc"><li>$130,000 - $175,000</li></span>
-                    </div>
-                    <div>
-                        <p id="not-applied-9" class="not-applied bg-(--area-bg) text-(--black) font-medium m-3 p-3 rounded-sm w-fit cursor-not-allowed">Not Applied</p>
-                        <div class="relative">
-                            <div class="min-h-12 max-h-20">
-                                <p class="absolute desc">
-                                    Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex gap-2">
-                        <button id="interview-click-9" class="interview-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--green) rounded-sm"><span class="text-(--green)">Interview</span></button>
-                        <button onclick="rejectClick()" id="reject-click-9" class="reject-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--red) rounded-sm"><span class="text-(--red)">Reject</span></button>
-                    </div>
-                </div>
-            </div>
-   event     </section>
+        </section>
         <section id="interview" class="hidden gap-4"></section>
         <section id="rejected" class="hidden gap-4"></section>
     </main>
