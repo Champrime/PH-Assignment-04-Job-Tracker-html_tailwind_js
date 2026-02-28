@@ -1,20 +1,48 @@
-const menuSelectors = document.getElementsByClassName("menu-selector");
+// const menuSelectors = document.getElementsByClassName("menu-selector");
 const jobCards = document.querySelectorAll('job-card');
-// const interviewCount = document.getElementById("interview-count");
-// const rejectCount = document.getElementById("reject-count");
+const interviewCount = document.getElementById("interview-count");
+const rejectCount = document.getElementById("reject-count");
 const all = document.getElementById("all");
 const allTab = document.getElementById("all-tab");
 const interview = document.getElementById("interview");
-const reject = document.getElementById("reject");
+const interviewTab = document.getElementById("interview-tab");
 const interviewClick1 = document.getElementById("interview-click-1");
+const reject = document.getElementById("rejected");
+const rejectTab = document.getElementById("reject-tab");
+
+const tabs = [allTab, interviewTab, rejectTab];
 // const rejectClick1 = document.getElementById("reject-click-1");
 
-allTab.addEventListener("click" , (event) => {
-    event.currentTarget === allTab.classList.contains("hidden") ? allTab.classList.replace("hidden, flex-y") : ""
+allTab.addEventListener("click" , () => {
+    // 1. Check BEFORE you change anything
+    if (all.classList.contains("hidden")) {
+        console.log("Showing All Tab");
+        all.classList.remove("hidden");
+        all.classList.add("flex-y");
+    }
+
+    // 2. Hide the others specifically
+    interview.classList.add("hidden");
+    interview.classList.remove("flex-y");
+
+    reject.classList.add("hidden");
+    reject.classList.remove("flex-y");
+});
+
+interviewTab.addEventListener("click" , () => {
+    interview.classList.contains("hidden") ? interview.classList.replace("hidden", "flex-y") : console.log("A certain thing not found");
+    all.classList.contains("flex-y") ? all.classList.replace("flex-y", "hidden") : console.log("A certain thing not found");
+    reject.classList.contains("flex-y") ? reject.classList.replace("flex-y", "hidden") : console.log("A certain thing not found");
+    // event.currentTarget.classList.contains("hidden") ?  console.log("interview ") : console.log("error");
+    // all.classList.contains("flex-y") ? console.log("all ") : console.log("error");
+    // reject.classList.contains("flex-y") ?  console.log("reject ") : console.log("error");
 })
 
-
-
+rejectTab.addEventListener("click" , () => {
+    reject.classList.contains("hidden") ? reject.classList.replace("hidden", "flex-y") : console.log("A certain thing not found")
+    all.classList.contains("flex-y") ? all.classList.replace("flex-y", "hidden") : console.log("A certain thing not found")
+    interview.classList.contains("flex-y") ? interview.classList.replace("flex-y", "hidden") : console.log("A certain thing not found")
+})
 
 // console.log(interviewClick1);
 interviewClick1.addEventListener ("click", (event) => {
@@ -23,7 +51,7 @@ interviewClick1.addEventListener ("click", (event) => {
     // Use its parentNode to get the parent of `interviewClick1` even when a child is clicked.
     let card = ((event.currentTarget.parentNode).parentNode).parentNode;
     let copyCard = card.cloneNode(true);
-    document.getElementById("interview-listed").appendChild(copyCard);
+    interview.appendChild(copyCard);
 })
 //     if (interviewCount.innerText < 1){
 //         interviewCount.innerText = Number(interviewCount.innerText) + 1;
