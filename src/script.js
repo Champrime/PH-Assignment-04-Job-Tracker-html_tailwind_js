@@ -1,5 +1,6 @@
 // const menuSelectors = document.getElementsByClassName("menu-selector");
 const jobCards = document.querySelectorAll('job-card');
+const totalCount = document.getElementById("total-count");
 const interviewCount = document.getElementById("interview-count");
 const rejectCount = document.getElementById("reject-count");
 
@@ -11,17 +12,24 @@ const position_InterviewTab = document.getElementById("interview-tab");
 const event_InterviewClick1 = document.getElementById("interview-click-1");
 const reject = document.getElementById("rejected");
 const position_RejectTab = document.getElementById("reject-tab");
+const event_RejectClick1 = document.getElementById("reject-click-1");
+const event_Delete_Card = document.getElementsByClassName("del-btn");
+
 
 const tabArray = [position_AllTab, position_InterviewTab, position_RejectTab];
 const sectionArray = [all, interview, reject];
 // const rejectClick1 = document.getElementById("reject-click-1");
+
+for(let x of document.getElementsByClassName("job-card")){
+    totalCount.innerText = Number(totalCount.innerText) + 1;
+}
 
 section_Tab.addEventListener("click", (event) => {
     for (let i = 0; i < tabArray.length; i++){ 
         if(event.target.parentNode.id ===  tabArray[i].id || event.target.id === tabArray[i].id && sectionArray[i].classList.contains("hidden")){
             sectionArray[i].classList.remove("hidden"); sectionArray[i].classList.add("flex-y");
             console.log(`clicked ${tabArray[i].innerText}`);
-        } else if (event.target.parentNode.id !==  tabArray[i].id || event.target.id !== tabArray[i].id){
+        } else if (event.target.parentNode.id !==  tabArray[i].id || event.target.id !== tabArray[i].id && sectionArray[i].classList.contains("flex-y")){
             sectionArray[i].classList.remove("flex-y"); sectionArray[i].classList.add("hidden");
             console.log(`changed ${tabArray[i].innerText}`);
         }
@@ -64,6 +72,8 @@ event_InterviewClick1.addEventListener ("click", (event) => {
     interview.appendChild(copyCard);
     console.log(document.getElementsByTagName("button").nodeList);
 })
+
+
 //     if (interviewCount.innerText < 1){
 //         interviewCount.innerText = Number(interviewCount.innerText) + 1;
 //         // if (rejectCLick()){document.getElementById("interviewCount").innerHTML = Number(document.getElementById("interviewCount").innerText) - 1}

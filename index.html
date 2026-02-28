@@ -16,7 +16,7 @@
             <div class="flex-col bg-white border border-(--stroke) rounded-lg">
                 <div class="m-5 flex-y gap-2">
                     <p>Total</p>
-                    <h2>8</h2>
+                    <h2 id="total-count" class="text-(--black)">0</h2>
                 </div>
             </div>
             <div class="flex-col bg-white border border-(--stroke) rounded-lg">
@@ -47,27 +47,33 @@
         </section>
         <section id="all" class="flex-y gap-4">
             <div id="job-card-1" class="job-card bg-white flex-col gap-4 border border-(--stroke) rounded-lg">
-                <div class="p-5 flex-y gap-5">
-                    <div>
-                        <h4>Mobile First Corp</h4>
-                        <h5>React Native Developer</h5>
-                    </div>
-                    <div class="summary flex flex-col md:flex-row gap-8 m-3 md:m-0">
-                        <span class="list-disc md:list-none"><li>Remote</li></span><span class="list-disc"><li>Full-time</li></span><span class="list-disc"><li>$130,000 - $175,000</li></span>
-                    </div>
-                    <div>
-                        <p id="not-applied-1" class="not-applied bg-(--area-bg) text-(--black) font-medium m-3 p-3 rounded-sm w-fit cursor-not-allowed">Not Applied</p>
-                        <div class="relative">
-                            <div class="min-h-12 max-h-20">
-                                <p class="absolute desc">
-                                    Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.
-                                </p>
+                <div class="relative flex-x">
+                    <div class="p-5 flex-y gap-5 w-full">
+                        <div>
+                            <h4>Mobile First Corp</h4>
+                            <h5>React Native Developer</h5>
+                        </div>
+                        <div class="summary flex flex-col md:flex-row gap-8 m-3 md:m-0">
+                            <span class="list-disc md:list-none"><li>Remote</li></span><span class="list-disc"><li>Full-time</li></span><span class="list-disc"><li>$130,000 - $175,000</li></span>
+                        </div>
+                        <div>
+                            <p id="not-applied-1" class="not-applied bg-(--area-bg) text-(--black) font-medium m-3 p-3 rounded-sm w-fit cursor-not-allowed">Not Applied</p>
+                            <div class="relative">
+                                <div class="min-h-12 max-h-20">
+                                    <p class="absolute desc">
+                                        Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.
+                                    </p>
+                                </div>
                             </div>
                         </div>
+                        <div class="flex gap-2">
+                            <button id="interview-click-1" class="interview-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--green) rounded-sm"><span class="text-(--green)">Interview</span></button>
+                            <button id="reject-click-1" class="reject-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--red) rounded-sm"><span class="text-(--red)">Reject</span></button>
+                        </div>
                     </div>
-                    <div class="flex gap-2">
-                        <button id="interview-click-1" class="interview-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--green) rounded-sm"><span class="text-(--green)">Interview</span></button>
-                        <button id="reject-click-1" class="reject-click text-sm font-semibold p-3 leading-5 transform-gpu border border-(--red) rounded-sm"><span class="text-(--red)">Reject</span></button>
+
+                    <div class="absolute top-6 right-6">
+                        <button class="del-btn text-(--grey) text-xl"><i class="fa-solid fa-trash-can"></i></button>
                     </div>
                 </div>
             </div>
