@@ -69,20 +69,19 @@
 <script>
     // console.log(`${document.getElementsByClassName("item")}`);
 
-    for(let item of document.getElementsByClassName("item")){
-        item.addEventListener("click", (event)=>{
-            console.log(`You clicked on ${item.innerText}`);
-            console.log(`${item.innerText} belongs to ${event.target.parentNode}, the parentNode. I want the parent remove ${item.innerHTML}`);
-            event.target.parentNode.removeChild(event.target);
-        // I clicked on a item, called it's parent to remove it from it's inventory.
-        // Much like going back to a parent folder to delete the child folder,
-        // Which html understands as "USER evented A target AND CALLED FOR IT'S parentNode TO remove_THE_Child THAT'S event.targetED".
-        })
-    }
+    // for(let item of document.getElementsByClassName("item-list")){
+    //     item.addEventListener("click", (event)=>{
+    //         console.log(`You clicked on ${item.innerText}`);
+    //         console.log(`${item.innerText} belongs to ${event.target.parentNode}, the parentNode. I want the parent remove ${item.innerHTML}`);
+    //         event.target.parentNode.removeChild(event.target);
+    //     // I clicked on a item, called it's parent to remove it from it's inventory.
+    //     // Much like going back to a parent folder to delete the child folder,
+    //     // Which html understands as "USER evented A target AND CALLED FOR IT'S parentNode TO remove_THE_Child THAT'S event.targetED".
+    //     })
+    // }
 
-        let count = 0, liNum = [], hNum = 0, i = 0;
+        let li = [], liNum = [], hNum = 0, i = 0;
         for (li of document.getElementsByTagName("li")){
-            count += 1;
             li = li.innerText.split(" ");
             for (num of li){
                 if(!isNaN(num)){ liNum.push(Number(num)); };
@@ -96,6 +95,12 @@
             } else { hNum = liNum[i]+1 }
         }
 
+    document.getElementById("item-list").addEventListener("click", (event)=>{
+        console.log(`You clicked on ${hNum.innerText}`);
+        console.log(`${hNum.innerText} belongs to ${event.target.parentNode}, the parentNode. I want the parent remove ${hNum.innerHTML}`);
+        event.target.parentNode.removeChild(event.target);
+    })
+
         //Add a new item
         document.getElementById("btn-add-item").addEventListener("click", () => {
             let newListItem = document.createElement("li");
@@ -103,6 +108,9 @@
             newListItem.innerText = `My Awesome Item - ${hNum}`;
             // console.log("newListItem.innerText");
             document.getElementById("item-list").appendChild(newListItem);
+            //this newly added Items won't be removed because the removal property was processed by for...of loop and assigned the existing items.
         });
+
+        // Too many problematic codes, on top of which the code is still not well functioning
 </script>
 </html>

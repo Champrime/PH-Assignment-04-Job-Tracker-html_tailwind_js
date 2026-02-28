@@ -32,6 +32,9 @@
     "tailwindcss": "^4.2.0"
   },
   "devDependencies": {
-    "servor": "^4.0.0"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.2",
+    "globals": "^17.3.0",
+    "servor": "^4.0.2"
   }
 }
