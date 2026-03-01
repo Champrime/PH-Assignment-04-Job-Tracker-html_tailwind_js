@@ -74,13 +74,14 @@ button:hover{
     cursor: pointer;
 }
 
-.desc:hover {
+.desc:hover, .desc:active {
     max-height: 25rem;
     padding: 0.75rem;
     overflow-y: auto;
     background: var(--area-bg);
     box-shadow: 0 0 1rem 0rem rgba(0, 0, 0, 0.08);
     transform: translateY(0.5rem) translateX(0.5rem);
+    z-index: 10;
 }
 
 .active-tab {

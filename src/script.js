@@ -19,7 +19,7 @@ const sectionArray = [all, interview, reject];
 // const rejectClick1 = document.getElementById("reject-click-1");
 
 
-// Total Job Count
+// Total Job Count and searched job count
 for(let x of document.getElementsByClassName("job-card")){
     totalCount.innerText = Number(totalCount.innerText) + 1;
     searchOutput.innerText = totalCount.innerText;
@@ -42,15 +42,23 @@ interview.addEventListener("click", (event) => {
     }
 });
 
+reject.addEventListener("click", (event) => {
+    if (event.target.classList.contains("del-btn")) {
+        event.target.closest(".job-card").remove();  //will start removing from the feet of event.currentTarget.parentNode.parentNode.parentNode
+        rejectCount.innerText = Number(rejectCount.innerText) - 1;
+        document.querySelector(".not-applied").innerText = "Not Applied";
+    }
+});
+
 //Initializing Interview button
 all.addEventListener("click", (event) => {
     if(event.target.classList.contains("interview-click") || event.target.parentNode.classList.contains("interview-click")){
-        event.target.parentNode.closest(".not-applied").innerText = "Applied";
+        event.target.closest(".w-full").querySelector(".not-applied").innerText = "Applied";
         let x = event.target.closest(".job-card").cloneNode(true);
         interview.appendChild(x);
         interviewCount.innerText = Number(interviewCount.innerText) + 1;
     }
-})
+});
     
 section_Tab.addEventListener("click", (event) => {
     for (let i = 0; i < tabArray.length; i++){ 
