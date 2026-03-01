@@ -59,7 +59,7 @@ reject.addEventListener("click", (event) => {
 all.addEventListener("click", (event) => {
     if(event.target.classList.contains("interview-click") || event.target.parentNode.classList.contains("interview-click")){        
         // Interview && Reject button - Single click enabled
-        event.target.setAttribute("disabled", true);
+        event_InterviewClick1.setAttribute("disabled", true);
 
         // Not Applied ==> Applied
         event.target.closest(".w-full").querySelector(".not-applied").innerText = "Applied";
@@ -71,7 +71,7 @@ all.addEventListener("click", (event) => {
     if(event.target.classList.contains("reject-click") || event.target.parentNode.classList.contains("reject-click")){
         
         // Interview && Reject button - Single click enabled
-        event.target.setAttribute("disabled", true);
+        event_RejectClick1.setAttribute("disabled", true);
         
         // Not Applied ==> Rejected
         event.target.closest(".w-full").querySelector(".not-applied").innerText = "Rejected";
@@ -79,7 +79,6 @@ all.addEventListener("click", (event) => {
         reject.appendChild(x);
         rejectCount.innerText = Number(rejectCount.innerText) + 1;
     }
-
 });
     
 section_Tab.addEventListener("click", (event) => {
