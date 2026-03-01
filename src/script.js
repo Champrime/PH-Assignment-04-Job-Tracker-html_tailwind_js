@@ -14,6 +14,12 @@ const reject = document.getElementById("rejected");
 const position_RejectTab = document.getElementById("reject-tab");
 const event_RejectClick1 = document.getElementById("reject-click-1");
 
+// let applyStatus = (x) => { 
+//     x.addEventListener("click", (event)=>{
+//         event.target.closest(".w-full").querySelector(".not-applied");
+//     })
+// }
+
 const tabArray = [position_AllTab, position_InterviewTab, position_RejectTab];
 const sectionArray = [all, interview, reject];
 // const rejectClick1 = document.getElementById("reject-click-1");
@@ -21,28 +27,14 @@ const sectionArray = [all, interview, reject];
 
 // Total Job Count and searched job count
 
-// for(let x of document.getElementsByClassName("job-card")){
-//     totalCount.innerText = Number(totalCount.innerText) + 1;
-//     searchOutput.innerText = totalCount.innerText;
-// }
-
-//as forEach() method is built to querySelectorAll(), I may do the following for a cleaner result. Newer learning, newer achievement.
-//However, querySelectorAll() and getElementsByClassName provides Static and Dynamic results respectively. And little knowledge is dangerous sometimes. I shall keep this newly discovery to myself for now and run the program using the old for...of method.
-// document.querySelectorAll(".job-card").forEach(() => {
-//     totalCount.innerText = Number(totalCount.innerText) + 1;
-//     searchOutput.innerText = totalCount.innerText;
-// })
-
-// all.classList.contains("job-card").forEach(() => {
-//     totalCount.innerText = Number(totalCount.innerText) + 1;
-//     searchOutput.innerText = totalCount.innerText;
-// })
+totalCount.innerText = document.getElementsByClassName("job-card").length;
+searchOutput.innerText = totalCount.innerText;
 
 //Initializing Delete - Recycle bin button
 all.addEventListener("click", (event) => {
     if (event.target.classList.contains("del-btn")) {
         event.target.closest(".job-card").remove();  //will start removing from the feet of event.currentTarget.parentNode.parentNode.parentNode
-        totalCount.innerText = Number(totalCount.innerText) - 1;
+        totalCount.innerText = document.getElementsByClassName("job-card").length; //Number()
         searchOutput.innerText = totalCount.innerText;
     }
 });
@@ -65,12 +57,29 @@ reject.addEventListener("click", (event) => {
 
 //Initializing Interview button
 all.addEventListener("click", (event) => {
-    if(event.target.classList.contains("interview-click") || event.target.parentNode.classList.contains("interview-click")){
+    if(event.target.classList.contains("interview-click") || event.target.parentNode.classList.contains("interview-click")){        
+        // Interview && Reject button - Single click enabled
+        event.target.setAttribute("disabled", true);
+
+        // Not Applied ==> Applied
         event.target.closest(".w-full").querySelector(".not-applied").innerText = "Applied";
         let x = event.target.closest(".job-card").cloneNode(true);
         interview.appendChild(x);
         interviewCount.innerText = Number(interviewCount.innerText) + 1;
     }
+
+    if(event.target.classList.contains("reject-click") || event.target.parentNode.classList.contains("reject-click")){
+        
+        // Interview && Reject button - Single click enabled
+        event.target.setAttribute("disabled", true);
+        
+        // Not Applied ==> Rejected
+        event.target.closest(".w-full").querySelector(".not-applied").innerText = "Rejected";
+        let x = event.target.closest(".job-card").cloneNode(true);
+        reject.appendChild(x);
+        rejectCount.innerText = Number(rejectCount.innerText) + 1;
+    }
+
 });
     
 section_Tab.addEventListener("click", (event) => {
@@ -87,6 +96,25 @@ section_Tab.addEventListener("click", (event) => {
 
 //Initializing Reject button
 
+// ------ Trash codes but useful for later ------
+
+// Total counter
+// for(let x of document.getElementsByClassName("job-card")){
+//     totalCount.innerText = Number(totalCount.innerText) + 1;
+//     searchOutput.innerText = totalCount.innerText;
+// }
+
+//as forEach() method is built to querySelectorAll(), I may do the following for a cleaner result. Newer learning, newer achievement.
+//However, querySelectorAll() and getElementsByClassName provides Static and Dynamic results respectively. And little knowledge is dangerous sometimes. I shall keep this newly discovery to myself for now and run the program using the old for...of method.
+// document.querySelectorAll(".job-card").forEach(() => {
+//     totalCount.innerText = Number(totalCount.innerText) + 1;
+//     searchOutput.innerText = totalCount.innerText;
+// })
+
+// all.classList.contains("job-card").forEach(() => {
+//     totalCount.innerText = Number(totalCount.innerText) + 1;
+//     searchOutput.innerText = totalCount.innerText;
+// })
 
 // Tab Selector primarily hard coded
 /*

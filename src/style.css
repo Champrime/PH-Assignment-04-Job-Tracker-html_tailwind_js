@@ -24,6 +24,11 @@ button:hover{
     transform: scale(1.05);
 }
 
+button:disabled{
+    opacity: 50%;
+    border: 0.25rem solid steelblue
+}
+
 .green-btn:hover {
     background-clip: text;
     color: transparent;
