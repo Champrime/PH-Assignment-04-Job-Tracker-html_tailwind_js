@@ -20,10 +20,23 @@ const sectionArray = [all, interview, reject];
 
 
 // Total Job Count and searched job count
-for(let x of document.getElementsByClassName("job-card")){
-    totalCount.innerText = Number(totalCount.innerText) + 1;
-    searchOutput.innerText = totalCount.innerText;
-}
+
+// for(let x of document.getElementsByClassName("job-card")){
+//     totalCount.innerText = Number(totalCount.innerText) + 1;
+//     searchOutput.innerText = totalCount.innerText;
+// }
+
+//as forEach() method is built to querySelectorAll(), I may do the following for a cleaner result. Newer learning, newer achievement.
+//However, querySelectorAll() and getElementsByClassName provides Static and Dynamic results respectively. And little knowledge is dangerous sometimes. I shall keep this newly discovery to myself for now and run the program using the old for...of method.
+// document.querySelectorAll(".job-card").forEach(() => {
+//     totalCount.innerText = Number(totalCount.innerText) + 1;
+//     searchOutput.innerText = totalCount.innerText;
+// })
+
+// all.classList.contains("job-card").forEach(() => {
+//     totalCount.innerText = Number(totalCount.innerText) + 1;
+//     searchOutput.innerText = totalCount.innerText;
+// })
 
 //Initializing Delete - Recycle bin button
 all.addEventListener("click", (event) => {
