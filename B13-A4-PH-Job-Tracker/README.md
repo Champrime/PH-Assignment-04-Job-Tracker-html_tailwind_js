@@ -42,7 +42,7 @@ To create and insert a new element into the DOM, I follow the following steps:
 const comments = document.getElementById('parent');
 ```
 
-4. Append the new element to the parent element using `appendChild()` or `insertBefore()`.
+1. Append the new element to the parent element using `appendChild()`.
 	
 	```js
 	comments.appendChild(newComment);
@@ -60,7 +60,7 @@ Event delegation is a technic where an event listener is attached to a parent el
 
 ### 5. What is the difference between preventDefault() and stopPropagation() methods?
 
-- `preventDefault()`: This method prevents the default action associated with an event from occurring. For example, if you have a link (`<a>`) and you call `preventDefault()` in its click event handler, it will prevent the browser from navigating to the link's URL.
+- `preventDefault()`: This method prevents the default action associated with an event from occurring. For example, if I have a link (`<a>`) and I call `preventDefault()` in its click event handler, it will prevent the browser from navigating to the link's URL.
 - `stopPropagation()`: This method stops the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.
 
 ---
