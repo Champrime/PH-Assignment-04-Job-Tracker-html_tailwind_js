@@ -40,9 +40,9 @@
                 <output><span id="search-output">0</span> Jobs</output>
             </div>
             <div id="tab-section" class="flex gap-2">
-                <button id="all-tab" class="menu-selector border border-(--stroke) rounded-sm px-3 py-2"><span class="text-(--grey) text-[0.75rem] text-center leading-3">All</span></button>
-                <button id="interview-tab" class="menu-selector border border-(--stroke) rounded-sm px-3 p-2"><span class="text-(--grey) text-[0.75rem] text-center leading-3">Interview</span></button>
-                <button id="reject-tab" class="menu-selector border border-(--stroke) rounded-sm px-3 p-2"><span class="text-(--grey) text-[0.75rem] text-center leading-3">Rejected</span></button>
+                <button id="all-tab" data-target="all" class="menu-selector active-tab border border-(--stroke) rounded-sm px-3 py-2" active><span class="text-(--grey) text-[0.75rem] text-center leading-3">All</span></button>
+                <button id="interview-tab" data-target="interview" class="menu-selector border border-(--stroke) rounded-sm px-3 p-2"><span class="text-(--grey) text-[0.75rem] text-center leading-3">Interview</span></button>
+                <button id="reject-tab" data-target="reject" class="menu-selector border border-(--stroke) rounded-sm px-3 p-2"><span class="text-(--grey) text-[0.75rem] text-center leading-3">Rejected</span></button>
             </div>
         </section>
         <section id="all" class="flex-y gap-4">
@@ -57,7 +57,7 @@
                             <span class="list-disc md:list-none"><li>Remote</li></span><span class="list-disc"><li>Full-time</li></span><span class="list-disc"><li>$130,000 - $175,000</li></span>
                         </div>
                         <div>
-                            <p id="not-applied-1" class="not-applied bg-(--area-bg) text-(--black) font-medium m-3 p-3 rounded-sm w-fit cursor-not-allowed">Not Applied</p>
+                            <p class="not-applied bg-(--area-bg) text-(--black) font-medium m-3 p-3 rounded-sm w-fit cursor-not-allowed">Not Applied</p>
                             <div class="relative">
                                 <div class="min-h-12 max-h-20">
                                     <p class="absolute desc">
@@ -80,20 +80,28 @@
             <div id="job-card-2" class="job-card bg-white flex-col gap-4 border border-(--stroke) rounded-lg">
                 <div class="relative flex-x">
                     <div class="p-5 flex-y gap-5 w-full">
-                        <div>
-                            <h4>Mobile First Corp</h4>
-                            <h5>React Native Developer</h5>
+                        <div class="ad-h">
+                            <h4>Avian BPO & IT</h4>
+                            <h5>Software Engineer</h5>
                         </div>
                         <div class="summary flex flex-col md:flex-row gap-8 m-3 md:m-0">
-                            <span class="list-disc md:list-none"><li>Remote</li></span><span class="list-disc"><li>Full-time</li></span><span class="list-disc"><li>$130,000 - $175,000</li></span>
+                            <span class="list-disc md:list-none"><li>Remote</li></span><span class="list-disc"><li>Full-time</li></span><span class="list-disc"><li>৳45000 - ৳45001 (Monthly)</li></span>
                         </div>
                         <div>
-                            <p id="not-applied-2" class="not-applied bg-(--area-bg) text-(--black) font-medium m-3 p-3 rounded-sm w-fit cursor-not-allowed">Not Applied</p>
+                            <p class="not-applied bg-(--area-bg) text-(--black) font-medium m-3 p-3 rounded-sm w-fit cursor-not-allowed">Not Applied</p>
                             <div class="relative">
                                 <div class="min-h-12 max-h-20">
-                                    <p class="absolute desc">
-                                        Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.
-                                    </p>
+                                    <div class="absolute desc">
+                                        <p>Software Engineer (RUET/KUET/BUET/CUET) - Fresher</p>
+                                        <ul>
+                                            <li>Develop and maintain Android applications using Java or Kotlin.</li>
+                                            <li>Collaborate with UI/UX designers and backend engineers to build clean, high-performance apps.</li>
+                                            <li>Test, debug, and optimize app performance across devices and OS versions.</li>
+                                            <li>Continuously learn new tools, frameworks, and technologies to improve product quality.</li>
+                                            <li>Participate in daily stand-ups, code reviews, and agile development cycles.</li>
+                                            <li>Familiarity with iOS development is considered good, but not mandatory.</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -108,9 +116,10 @@
                     </div>
                 </div>
             </div>
+            
         </section>
         <section id="interview" class="hidden gap-4"></section>
-        <section id="rejected" class="hidden gap-4"></section>
+        <section id="reject" class="hidden gap-4"></section>
     </main>
 </body>
 <script src="./src/script.js"></script>

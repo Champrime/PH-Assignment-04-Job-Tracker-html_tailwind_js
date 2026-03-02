@@ -22,7 +22,11 @@
     }
 
     p {
-        @apply text-(--dark-grey) text-sm font-normal leading-5;
+        @apply text-(--dark-grey) text-sm font-normal leading-5 mb-2;
+    }
+
+    ul > li {
+        @apply text-(--dark-grey) text-xs font-normal leading-5 list-disc list-inside;
     }
 
     .summary{

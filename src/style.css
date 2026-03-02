@@ -57,6 +57,7 @@ button:disabled{
 .menu-selector {
     transition: all 300ms ease-in-out;
 }
+
 .menu-selector:hover {
     transform: scale(1.1);
     box-shadow: 0 0 0.5rem 0.25rem rgba(7, 212, 154, 0.425);
@@ -91,12 +92,17 @@ button:disabled{
     z-index: 10;
 }
 
-.active-tab {
-    background-color: var(--black, #111827);
+.active-tab, .menu-selector:active {
+    transform: scale(1.1);
+    color: rgb(0, 252, 181);
+    background: rgba(7, 212, 154, 0.425);
+    box-shadow: 0 0 0.5rem 0.25rem rgba(7, 212, 154, 0.425);
+
 }
 
 .active-tab span {
-    color: #ffffff !important;
+    color: rgb(2, 86, 62);
+    /* rgb(2, 57, 41); */
 }
 
 .recycle-btn {
