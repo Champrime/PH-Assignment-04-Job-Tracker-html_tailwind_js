@@ -16,6 +16,9 @@ const ads = all.querySelectorAll(".ad-h");
 const ad = x => x.target.closest(".job-card").querySelector(".ad-h");
 const sectionArray = [all, interview, reject];
 
+const interviewNoJob = document.getElementById("interview-no-job");
+const rejectNoJob = document.getElementById("reject-no-job");
+
 // Total Job Count and searched job count
 totalCount.innerText = all.getElementsByClassName("job-card").length;
 searchOutput.innerText = totalCount.innerText;
@@ -30,7 +33,7 @@ all.addEventListener("click", (event) => {
         event_RejectClick1.removeAttribute("disabled");
 
         // Not Applied ==> Applied
-        applyStatus.innerText = "Applied"; //Silently I unlocked new of using querySelector. I don't always have to use `document`. `document` means all of this html file. `document.querySelector()` means searching atop to bottom of this html. so `Random_Node.querySelector()` means searching the first matching class element of Random_Node.
+        applyStatus.innerText = "Interview"; //Silently I unlocked new of using querySelector. I don't always have to use `document`. `document` means all of this html file. `document.querySelector()` means searching atop to bottom of this html. so `Random_Node.querySelector()` means searching the first matching class element of Random_Node.
         let x = event.target.closest(".job-card").cloneNode(true);
         interview.appendChild(x);
         for (const one_particular_ad of reject.querySelectorAll(".ad-h")){
@@ -38,6 +41,9 @@ all.addEventListener("click", (event) => {
                 one_particular_ad.closest(".job-card").remove();
             }
         }
+
+        event.target.closest(".job-card").querySelector(".interview-click").setAttribute("disabled", true);
+        event.target.closest(".job-card").querySelector(".reject-click").setAttribute("disabled", true);
         // interviewCount.innerText = Number(interviewCount.innerText) + 1;
     }
 
@@ -55,11 +61,15 @@ all.addEventListener("click", (event) => {
                 one_particular_ad.closest(".job-card").remove();
             }
         }
+
+        event.target.closest(".job-card").querySelector(".interview-click").setAttribute("disabled", true);
+        event.target.closest(".job-card").querySelector(".reject-click").setAttribute("disabled", true);
         // rejectCount.innerText = Number(rejectCount.innerText) + 1;
     }
 
     interviewCount.innerText = interview.getElementsByClassName("job-card").length;
     rejectCount.innerText = reject.getElementsByClassName("job-card").length;
+    noJobsAv();
 });
 
 // Initializing Delete - Recycle bin button for all
@@ -68,6 +78,7 @@ all.addEventListener("click", (event) => {
         event.target.closest(".job-card").remove();  //will start removing from the feet of event.currentTarget.parentNode.parentNode.parentNode
         totalCount.innerText = document.getElementsByClassName("job-card").length; //Number()
         searchOutput.innerText = totalCount.innerText;
+        noJobsAv();
     }
 });
 
@@ -97,6 +108,7 @@ interview.addEventListener("click", (event) => {
 
     interviewCount.innerText = interview.getElementsByClassName("job-card").length;
     rejectCount.innerText = reject.getElementsByClassName("job-card").length;
+    noJobsAv();
 });
 
 // Delete or Interview from Reject section
@@ -115,7 +127,7 @@ reject.addEventListener("click", (event) => {
 
     // Interview Click
     if (event.target.closest(".interview-click")){
-        event.target.closest(".w-full").querySelector(".not-applied").innerText = "Applied";
+        event.target.closest(".w-full").querySelector(".not-applied").innerText = "Interview";
         event.target.closest(".job-card").querySelector(".interview-click").setAttribute("disabled", true);
         event.target.closest(".job-card").querySelector(".reject-click").removeAttribute("disabled");
         interview.appendChild(event.target.closest(".job-card").cloneNode(true));
@@ -124,7 +136,9 @@ reject.addEventListener("click", (event) => {
 
     interviewCount.innerText = interview.getElementsByClassName("job-card").length;
     rejectCount.innerText = reject.getElementsByClassName("job-card").length;
+    noJobsAv();
 });
+
 
 
 
@@ -148,9 +162,30 @@ section_Tab.addEventListener("click", (event) => {
     }
 });
 
+function noJobsAv() {
+    if (all.getElementsByClassName("job-card").length < 1) {
+        all.innerHTML = `<div class="w-screen min-h-vh flex-center"><p class="">No jobs Available</p></div>`;
+    }
+
+    if (interview.getElementsByClassName("job-card").length < 1) {
+        interviewNoJob.classList.replace("hidden", "flex-center");
+    } else {
+        interviewNoJob.classList.replace("flex-center", "hidden");
+    }
+
+    if (reject.getElementsByClassName("job-card").length < 1) {
+        rejectNoJob.classList.replace("hidden", "flex-center");
+    } else {
+        rejectNoJob.classList.replace("flex-center", "hidden");
+    }
+}
 
 totalCount.innerText = all.getElementsByClassName("job-card").length;
 searchOutput.innerText = totalCount.innerText;
+
+noJobsAv();
+
+
 
 // section_Tab.addEventListener("click", (event) => {
 //     for (let i = 0; i < tabArray.length; i++){ 
@@ -226,7 +261,7 @@ position_RejectTab.addEventListener("click" , () => {
         // if (rejectCLick()){document.getElementById("interviewCount").innerHTML = Number(document.getElementById("interviewCount").innerText) - 1}
         event_InterviewClick1.style.opacity = "50%";
         rejectClick1.style.opacity = "100%";
-        document.getElementById("not-applied-1").innerText = "Applied";
+        document.getElementById("not-applied-1").innerText = "Interview";
         document.createElement()
     }
 }, {once: true})*/
