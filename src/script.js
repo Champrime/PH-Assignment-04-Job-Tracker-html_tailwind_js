@@ -3,30 +3,64 @@ const totalCount = document.getElementById("total-count");
 const searchOutput = document.getElementById("search-output");
 const interviewCount = document.getElementById("interview-count");
 const rejectCount = document.getElementById("reject-count");
+const event_InterviewClick1 = document.getElementById("interview-click-1");
+const event_RejectClick1 = document.getElementById("reject-click-1");
 
 const section_Tab = document.getElementById("tab-section");
 
 const all = document.getElementById("all");
-const position_AllTab = document.getElementById("all-tab");
-
 const interview = document.getElementById("interview");
-const position_InterviewTab = document.getElementById("interview-tab");
-const event_InterviewClick1 = document.getElementById("interview-click-1");
-
 const reject = document.getElementById("reject");
-const position_RejectTab = document.getElementById("reject-tab");
-const event_RejectClick1 = document.getElementById("reject-click-1");
 
 const ads = all.querySelectorAll(".ad-h");
 const ad = x => x.target.closest(".job-card").querySelector(".ad-h");
-
-const tabArray = [position_AllTab, position_InterviewTab, position_RejectTab];
 const sectionArray = [all, interview, reject];
-// const rejectClick1 = document.getElementById("reject-click-1");
 
 // Total Job Count and searched job count
 totalCount.innerText = all.getElementsByClassName("job-card").length;
 searchOutput.innerText = totalCount.innerText;
+
+//Initializing Interview button
+all.addEventListener("click", (event) => {
+    const applyStatus = event.target.closest(".w-full").querySelector(".not-applied");
+    if(event.target.classList.contains("interview-click") || event.target.parentNode.classList.contains("interview-click")){ 
+               
+        // Interview button disabled && Reject button enabled - Single click
+        event_InterviewClick1.setAttribute("disabled", true);
+        event_RejectClick1.removeAttribute("disabled");
+
+        // Not Applied ==> Applied
+        applyStatus.innerText = "Applied"; //Silently I unlocked new of using querySelector. I don't always have to use `document`. `document` means all of this html file. `document.querySelector()` means searching atop to bottom of this html. so `Random_Node.querySelector()` means searching the first matching class element of Random_Node.
+        let x = event.target.closest(".job-card").cloneNode(true);
+        interview.appendChild(x);
+        for (const one_particular_ad of reject.querySelectorAll(".ad-h")){
+            if(ad(event).innerHTML === one_particular_ad.innerHTML){
+                one_particular_ad.closest(".job-card").remove();
+            }
+        }
+        // interviewCount.innerText = Number(interviewCount.innerText) + 1;
+    }
+
+    if(event.target.classList.contains("reject-click") || event.target.parentNode.classList.contains("reject-click")){
+        // Reject button enabled && Interview button disabled - Single click
+        event_RejectClick1.setAttribute("disabled", true);
+        event_InterviewClick1.removeAttribute("disabled");
+        
+        // Not Applied ==> Rejected
+        applyStatus.innerText = "Rejected";
+        let x = event.target.closest(".job-card").cloneNode(true);
+        reject.appendChild(x);
+        for (const one_particular_ad of interview.querySelectorAll(".ad-h")){
+            if(ad(event).innerHTML === one_particular_ad.innerHTML){
+                one_particular_ad.closest(".job-card").remove();
+            }
+        }
+        // rejectCount.innerText = Number(rejectCount.innerText) + 1;
+    }
+
+    interviewCount.innerText = interview.getElementsByClassName("job-card").length;
+    rejectCount.innerText = reject.getElementsByClassName("job-card").length;
+});
 
 // Initializing Delete - Recycle bin button for all
 all.addEventListener("click", (event) => {
@@ -52,7 +86,7 @@ interview.addEventListener("click", (event) => {
 
     }
 
-    // Recycle Bin Click
+    // Reject Click
     if (event.target.closest(".reject-click")){
         event.target.closest(".w-full").querySelector(".not-applied").innerText = "Rejected";
         event.target.closest(".job-card").querySelector(".reject-click").setAttribute("disabled", true);
@@ -79,7 +113,7 @@ reject.addEventListener("click", (event) => {
         document.querySelector(".not-applied").innerText = "Not Applied";
     }
 
-    // Recycle Bin Click
+    // Interview Click
     if (event.target.closest(".interview-click")){
         event.target.closest(".w-full").querySelector(".not-applied").innerText = "Applied";
         event.target.closest(".job-card").querySelector(".interview-click").setAttribute("disabled", true);
@@ -92,38 +126,8 @@ reject.addEventListener("click", (event) => {
     rejectCount.innerText = reject.getElementsByClassName("job-card").length;
 });
 
-// One click takes away
 
 
-//Initializing Interview button
-all.addEventListener("click", (event) => {
-    const applyStatus = event.target.closest(".w-full").querySelector(".not-applied");
-    if(event.target.classList.contains("interview-click") || event.target.parentNode.classList.contains("interview-click")){        
-        // Interview button disabled && Reject button enabled - Single click
-        event_InterviewClick1.setAttribute("disabled", true);
-        event_RejectClick1.removeAttribute("disabled");
-        // event_RejectClick1.setAttribute("disabled", true);      
-
-        // Not Applied ==> Applied
-        applyStatus.innerText = "Applied"; //Silently I unlocked new of using querySelector. I don't always have to use `document`. `document` means all of this html file. `document.querySelector()` means searching atop to bottom of this html. so `Random_Node.querySelector()` means searching the first matching class element of Random_Node.
-        let x = event.target.closest(".job-card").cloneNode(true);
-        interview.appendChild(x);
-        interviewCount.innerText = Number(interviewCount.innerText) + 1;
-    }
-
-    if(event.target.classList.contains("reject-click") || event.target.parentNode.classList.contains("reject-click")){
-        // Interview && Reject button - Single click enabled
-        event_RejectClick1.setAttribute("disabled", true);
-        event_InterviewClick1.removeAttribute("disabled");
-        // event_RejectClick1.setAttribute("disabled", true);   
-        
-        // Not Applied ==> Rejected
-        applyStatus.innerText = "Rejected";
-        let x = event.target.closest(".job-card").cloneNode(true);
-        reject.appendChild(x);
-        rejectCount.innerText = Number(rejectCount.innerText) + 1;
-    }
-});
     
 // !position_InterviewTab.classList.contains("active-tab")? console.log("Yes") : console.log("No")
 

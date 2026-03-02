@@ -77,9 +77,6 @@ button:disabled{
         color         300ms ease-in-out,
         box-shadow    300ms ease-out 100ms,
         transform     200ms ease-out;
-
-    will-change: max-height, transform;
-    cursor: pointer;
 }
 
 .desc:hover, .desc:active {
