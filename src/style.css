@@ -26,7 +26,7 @@ button:hover{
 
 button:disabled{
     opacity: 50%;
-    border: 0.25rem solid steelblue
+    transform: none;
 }
 
 .green-btn:hover {
@@ -34,19 +34,22 @@ button:disabled{
     color: transparent;
     background: linear-gradient(0deg, rgba(86, 212, 7, 0.5), rgba(0, 0, 0, 0));
     box-shadow: 0 0 0.5rem 0.25rem rgba(86, 212, 7, 0.5);
-
 }
 
-.red-btn, .reject-btn{
+.green-btn:disabled, .red-btn:disabled, .reject-btn:disabled {
+    background: linear-gradient(180deg, rgba(93, 93, 93, 0.5), rgba(0, 0, 0, 0));
+    box-shadow: none;
+}
+
+.red-btn, .reject-btn {
     color: red;
 }
 
-.red-btn:hover{
+.red-btn:hover {
     transform: matrix();
 }
 
-
-.reject-btn:hover{
+.reject-btn:hover {
     background: linear-gradient(0deg, rgba(212, 41, 7, 0.5), rgba(0, 0, 0, 0));
     box-shadow: 0 0 0.5rem 0.25rem rgba(212, 7, 7, 0.5);
 }
@@ -75,7 +78,6 @@ button:disabled{
         transform     200ms ease-out;
 
     will-change: max-height, transform;
-
     cursor: pointer;
 }
 
@@ -92,6 +94,7 @@ button:disabled{
 .active-tab {
     background-color: var(--black, #111827);
 }
+
 .active-tab span {
     color: #ffffff !important;
 }

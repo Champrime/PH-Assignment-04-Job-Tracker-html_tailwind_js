@@ -5,14 +5,22 @@ const interviewCount = document.getElementById("interview-count");
 const rejectCount = document.getElementById("reject-count");
 
 const section_Tab = document.getElementById("tab-section");
+
 const all = document.getElementById("all");
 const position_AllTab = document.getElementById("all-tab");
+
 const interview = document.getElementById("interview");
 const position_InterviewTab = document.getElementById("interview-tab");
 const event_InterviewClick1 = document.getElementById("interview-click-1");
+
 const reject = document.getElementById("rejected");
 const position_RejectTab = document.getElementById("reject-tab");
 const event_RejectClick1 = document.getElementById("reject-click-1");
+
+const ads = all.getElementsByClassName("ad-h");
+const ad = (x) => x.target.closest(".job-card").querySelector(".ad-h");
+
+console.log(`${ads},${ad}`);
 
 // let applyStatus = (x) => { 
 //     x.addEventListener("click", (event)=>{
@@ -24,9 +32,7 @@ const tabArray = [position_AllTab, position_InterviewTab, position_RejectTab];
 const sectionArray = [all, interview, reject];
 // const rejectClick1 = document.getElementById("reject-click-1");
 
-
 // Total Job Count and searched job count
-
 totalCount.innerText = document.getElementsByClassName("job-card").length;
 searchOutput.innerText = totalCount.innerText;
 
@@ -41,9 +47,16 @@ all.addEventListener("click", (event) => {
 
 interview.addEventListener("click", (event) => {
     if (event.target.classList.contains("del-btn")) {
+        // for (one_particular_ad of ads){
+        //     if(one_particular_ad.innerHTML === ad(event).innerHTML){
+        //         console.log("peace");
+        //     }
+        // }
         event.target.closest(".job-card").remove();  //will start removing from the feet of event.currentTarget.parentNode.parentNode.parentNode
         interviewCount.innerText = Number(interviewCount.innerText) - 1;
         document.querySelector(".not-applied").innerText = "Not Applied";
+
+        event_InterviewClick1.removeAttribute("disabled");
     }
 });
 
@@ -52,26 +65,31 @@ reject.addEventListener("click", (event) => {
         event.target.closest(".job-card").remove();  //will start removing from the feet of event.currentTarget.parentNode.parentNode.parentNode
         rejectCount.innerText = Number(rejectCount.innerText) - 1;
         document.querySelector(".not-applied").innerText = "Not Applied";
+        
+        event_RejectClick1.removeAttribute("disabled");
     }
 });
 
 //Initializing Interview button
 all.addEventListener("click", (event) => {
     if(event.target.classList.contains("interview-click") || event.target.parentNode.classList.contains("interview-click")){        
-        // Interview && Reject button - Single click enabled
+        // Interview button disabled && Reject button enabled - Single click
         event_InterviewClick1.setAttribute("disabled", true);
+        event_RejectClick1.removeAttribute("disabled");
+        // event_RejectClick1.setAttribute("disabled", true);      
 
         // Not Applied ==> Applied
-        event.target.closest(".w-full").querySelector(".not-applied").innerText = "Applied";
+        event.target.closest(".w-full").querySelector(".not-applied").innerText = "Applied"; //Silently I unlocked new of using querySelector. I don't always have to use `document`. `document` means all of this html file. `document.querySelector()` means searching atop to bottom of this html. so `Random_Node.querySelector()` means searching the first matching class element of Random_Node.
         let x = event.target.closest(".job-card").cloneNode(true);
         interview.appendChild(x);
         interviewCount.innerText = Number(interviewCount.innerText) + 1;
     }
 
     if(event.target.classList.contains("reject-click") || event.target.parentNode.classList.contains("reject-click")){
-        
         // Interview && Reject button - Single click enabled
         event_RejectClick1.setAttribute("disabled", true);
+        event_InterviewClick1.removeAttribute("disabled");
+        // event_RejectClick1.setAttribute("disabled", true);   
         
         // Not Applied ==> Rejected
         event.target.closest(".w-full").querySelector(".not-applied").innerText = "Rejected";
